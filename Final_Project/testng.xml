@@ -2,6 +2,10 @@
 
 <suite name="Automation Suite" parallel="methods" thread-count="3">
 
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
     <test name="UI Tests">
         <classes>
             <class name="org.example.ui.AuthTests"/>
