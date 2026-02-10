@@ -9,6 +9,7 @@
     <test name="UI Tests">
         <classes>
             <class name="org.example.ui.AuthTests"/>
+            <class name="org.example.ui.ContactFormTest"/>
         </classes>
     </test>
 

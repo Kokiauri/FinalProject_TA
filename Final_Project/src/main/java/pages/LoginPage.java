@@ -11,7 +11,6 @@ import java.time.Duration;
 
 public class LoginPage extends BasePage {
 
-    private By homeHeader = By.xpath("//h2[contains(text(), 'Full-Fledged practice website for Automation Engineers')]");
     private By signupLink = By.xpath("//a[contains(text(),'Signup')]");
     private By signupNameField = By.xpath("//input[@data-qa='signup-name']");
     private By signupEmailField = By.xpath("//input[@data-qa='signup-email']");
@@ -61,11 +60,6 @@ public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) {
         super(driver);
-    }
-
-    @Step("Navigate to Home Page")
-    public void navigateToHomePage() {
-        driver.get("https://automationexercise.com");
     }
 
     @Step("Check if account created text is visible")
