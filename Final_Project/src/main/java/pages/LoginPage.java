@@ -48,6 +48,7 @@ public class LoginPage extends BasePage {
     private By logoutBtn = By.xpath("//a[@href='/logout']");
     private By accountCreated = By.xpath("//b[contains(text(), 'Account')]");
     private By wrongLoginText = By.xpath("//p[contains(text(), 'password is incorrect')]");
+    private By emailExistsError = By.xpath("//p[contains(text(), 'Email Address already exist!')]");
 
     private By loggedInText =
             By.xpath("//a[contains(text(),'Logged in as')]");
@@ -222,5 +223,10 @@ public class LoginPage extends BasePage {
     @Step("Check if incorrect credentials error is visible")
     public boolean areCredentialsIncorrect() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(wrongLoginText)).isDisplayed();
+    }
+
+    @Step("Check if 'Email Address already exist!' error is visible")
+    public boolean isEmailExistsErrorVisible() {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(emailExistsError)).isDisplayed();
     }
 }

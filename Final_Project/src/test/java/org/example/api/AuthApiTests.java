@@ -45,4 +45,34 @@ public class AuthApiTests extends BaseApiTest {
         Assert.assertEquals(jsonPath.getInt("responseCode"), 400);
         Assert.assertEquals(jsonPath.getString("message"), "Bad request, email or password parameter is missing in POST request.");
     }
+
+    @Test(priority = 3, description = "API 9: DELETE To Verify Login")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Verify that DELETE request to /verifyLogin returns 405 Method Not Allowed")
+    public void deleteToVerifyLogin() {
+        Response response = given()
+            .baseUri(BASE_URL)
+        .when()
+            .delete("/verifyLogin");
+        
+        JsonPath jsonPath = getJsonPath(response);
+        Assert.assertEquals(jsonPath.getInt("responseCode"), 405);
+        Assert.assertEquals(jsonPath.getString("message"), "This request method is not supported.");
+    }
+
+    @Test(priority = 4, description = "API 10: POST To Verify Login with invalid details")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Verify that POST request to /verifyLogin with invalid details returns 404 User not found!")
+    public void postToVerifyLoginWithInvalidDetails() {
+        Response response = given()
+            .baseUri(BASE_URL)
+            .formParam("email", "nonexistent_user_123@invalid.com")
+            .formParam("password", "wrongpassword")
+        .when()
+            .post("/verifyLogin");
+        
+        JsonPath jsonPath = getJsonPath(response);
+        Assert.assertEquals(jsonPath.getInt("responseCode"), 404);
+        Assert.assertEquals(jsonPath.getString("message"), "User not found!");
+    }
 }

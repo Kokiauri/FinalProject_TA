@@ -127,5 +127,24 @@ public class AuthTests extends BaseTest {
         Assert.assertTrue(page.isLoginPageVisible(), "Login page is NOT visible");
 
     }
+
+    @Test(description = "Test Case 5: Register User with existing email")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Verify that user cannot register with an already existing email address")
+    public void registerUserWithExistingEmail() {
+        LoginPage page = new LoginPage(DriverFactory.getDriver());
+
+        page.navigateToHomePage();
+        Assert.assertTrue(page.isHomePageVisible(), "Home page is NOT visible");
+
+        page.clickSignupLink();
+        Assert.assertTrue(page.isLoginPageVisible(), "Signup/Login page is NOT visible");
+
+        page.enterSignupName("Test User");
+        page.enterSignupEmail("t@protonmail.com");
+
+        page.clickSignupButton();
+        Assert.assertTrue(page.isEmailExistsErrorVisible(), "Error message 'Email Address already exist!' is not visible");
+    }
 }
 
