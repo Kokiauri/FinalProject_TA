@@ -29,4 +29,18 @@ public class BrandsApiTests extends BaseApiTest {
         Assert.assertEquals(jsonPath.getInt("responseCode"), 200);
         Assert.assertNotNull(jsonPath.get("brands"), "Brands list should not be null");
     }
+
+    @Test(priority = 2, description = "API 4: PUT To All Brands List")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Verify that PUT request to /brandsList returns 405 Method Not Allowed")
+    public void putToAllBrandsList() {
+        Response response = given()
+            .baseUri(BASE_URL)
+        .when()
+            .put("/brandsList");
+        
+        JsonPath jsonPath = getJsonPath(response);
+        Assert.assertEquals(jsonPath.getInt("responseCode"), 405);
+        Assert.assertEquals(jsonPath.getString("message"), "This request method is not supported.");
+    }
 }

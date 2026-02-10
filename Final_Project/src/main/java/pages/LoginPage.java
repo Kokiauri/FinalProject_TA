@@ -73,11 +73,7 @@ public class LoginPage extends BasePage {
         return !driver.findElements(accountCreated).isEmpty();
     }
 
-    @Step("Check if Home Page is visible")
-    public boolean isHomePageVisible() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(homeHeader))
-                .isDisplayed();
-    }
+
 
     @Step("Click on Signup / Login link")
     public void clickSignupLink() {

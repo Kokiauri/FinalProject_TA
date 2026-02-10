@@ -16,6 +16,7 @@
         <classes>
             <class name="org.example.api.ProductsApiTests"/>
             <class name="org.example.api.BrandsApiTests"/>
+            <class name="org.example.api.AuthApiTests"/>
         </classes>
     </test>
 
