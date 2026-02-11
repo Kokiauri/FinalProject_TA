@@ -118,7 +118,6 @@ public class AuthTests extends BaseTest {
     public void logoutUserTest(){
         LoginPage page = new LoginPage(DriverFactory.getDriver());
         page.navigateToHomePage();
-        Assert.assertTrue(page.isHomePageVisible(), "Home page is NOT visible");
         page.clickSignupLink();
         Assert.assertTrue(page.isLoginPageVisible(), "Login page is NOT visible");
         page.login("t@protonmail.com", "123456");
@@ -135,7 +134,6 @@ public class AuthTests extends BaseTest {
         LoginPage page = new LoginPage(DriverFactory.getDriver());
 
         page.navigateToHomePage();
-        Assert.assertTrue(page.isHomePageVisible(), "Home page is NOT visible");
 
         page.clickSignupLink();
         Assert.assertTrue(page.isLoginPageVisible(), "Signup/Login page is NOT visible");

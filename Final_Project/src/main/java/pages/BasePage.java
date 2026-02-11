@@ -1,10 +1,12 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -16,19 +18,10 @@ public class BasePage {
 
     protected String baseUrl = "https://automationexercise.com";
 
-    private By homeHeader = By.xpath("//h2[contains(text(), 'Full-Fledged practice website for Automation Engineers')]");
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    }
-
-    public void navigateToHomePage() {
-        driver.get(baseUrl);
-    }
-
-    public boolean isHomePageVisible() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(homeHeader)).isDisplayed();
     }
 
     protected void click(By locator) {
@@ -48,6 +41,7 @@ public class BasePage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
 
    }
+
 
 
 }

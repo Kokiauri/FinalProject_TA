@@ -9,9 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class LoginPage extends BasePage {
+public class LoginPage extends HomePage {
 
-    private By signupLink = By.xpath("//a[contains(text(),'Signup')]");
     private By signupNameField = By.xpath("//input[@data-qa='signup-name']");
     private By signupEmailField = By.xpath("//input[@data-qa='signup-email']");
     private By signupButton = By.xpath("//button[@data-qa='signup-button']");
@@ -44,7 +43,6 @@ public class LoginPage extends BasePage {
     private By cityField = By.id("city");
     private By zipCodeField = By.id("zipcode");
     private By mobileNumberField = By.id("mobile_number");
-    private By homeSlider = By.id("slider");
     private By logoutBtn = By.xpath("//a[@href='/logout']");
     private By accountCreated = By.xpath("//b[contains(text(), 'Account')]");
     private By wrongLoginText = By.xpath("//p[contains(text(), 'password is incorrect')]");
@@ -66,13 +64,6 @@ public class LoginPage extends BasePage {
     @Step("Check if account created text is visible")
     public boolean isAccountCreated() {
         return !driver.findElements(accountCreated).isEmpty();
-    }
-
-
-
-    @Step("Click on Signup / Login link")
-    public void clickSignupLink() {
-        click(signupLink);
     }
 
     @Step("Enter signup name: {name}")

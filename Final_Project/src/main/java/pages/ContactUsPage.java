@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class ContactUsPage extends BasePage{
+public class ContactUsPage extends HomePage{
     private By contactUsLink = By.xpath("//a[@href='/contact_us']");
     private By contactUsForm = By.id("contact-us-form");
     private By getInTouchHeader = By.xpath("//h2[contains(text(), 'Get In Touch')]");

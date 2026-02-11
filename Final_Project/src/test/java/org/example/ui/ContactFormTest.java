@@ -16,14 +16,8 @@ public class ContactFormTest extends BaseTest {
     @Description("Verify that 'Contact Us' Form Works and success message is displayed")
     public void ContactUsFormTest(){
         ContactUsPage contactUsPage = new ContactUsPage(DriverFactory.getDriver());
-
-        // 2. Navigate to url 'http://automationexercise.com'
         contactUsPage.navigateToHomePage();
 
-        // 3. Verify that home page is visible successfully
-        Assert.assertTrue(contactUsPage.isHomePageVisible(), "Home page is not visible");
-
-        // 4. Click on 'Contact Us' button
         contactUsPage.clickContactUs();
 
         Assert.assertTrue(contactUsPage.isGetInTouchVisible(), "'GET IN TOUCH' is not visible");
