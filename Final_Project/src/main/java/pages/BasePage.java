@@ -42,6 +42,11 @@ public class BasePage {
 
    }
 
+    protected void scrollToElement(By locator) {
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
 
 
 }

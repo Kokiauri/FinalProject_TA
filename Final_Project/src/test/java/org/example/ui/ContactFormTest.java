@@ -11,7 +11,7 @@ import utils.DriverFactory;
 import java.io.File;
 
 public class ContactFormTest extends BaseTest {
-    @Test(description = "Test Case 6: Contact Us Form")
+    @Test(description = "UI 6: Contact Us Form")
     @Severity(SeverityLevel.CRITICAL)
     @Description("Verify that 'Contact Us' Form Works and success message is displayed")
     public void ContactUsFormTest(){
@@ -32,7 +32,7 @@ public class ContactFormTest extends BaseTest {
         contactUsPage.handleAlert();
 
         Assert.assertTrue(contactUsPage.isSuccessMessageVisible(), "Success message is not visible");
-        /*I am aware that I'm supposed to use the "Home" button here instead of calling the driver. But for some reason,
+        /*I am aware that I'm supposed to use the "Home" button here instead of calling the driver.navigate. But for some reason,
         /a Google ad pops up at random times, so I decided to go with a more reliable option */
         contactUsPage.navigateToHomePage();
         contactUsPage.isHomePageVisible();

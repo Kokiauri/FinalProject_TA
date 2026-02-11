@@ -16,7 +16,7 @@ public class AuthTests extends BaseTest {
 
     @Test(
             priority = 1,
-            description = "Register new user with valid data"
+            description = "UI 1: Register new user with valid data"
     )
     @Severity(SeverityLevel.CRITICAL)
     @Description("Verify that a new user can register successfully using valid credentials")
@@ -64,7 +64,7 @@ public class AuthTests extends BaseTest {
     }
     @Test(
             priority = 2,
-            description = "Login user with correct email and password")
+            description = "UI 2: Login user with correct email and password")
     @Severity(SeverityLevel.CRITICAL)
     @Description("Verify that a registered user can login successfully and delete account")
     public void loginUserWithCorrectCredentials() {
@@ -90,7 +90,7 @@ public class AuthTests extends BaseTest {
     }
     @Test(
             priority = 2,
-            description = "Login user with Incorrect credentials")
+            description = "UI: 3Login user with Incorrect credentials")
     @Severity(SeverityLevel.CRITICAL)
     @Description("Verify that a non-registered user can't login")
     public void loginUserWithIncorrectCredentials() {
@@ -112,7 +112,7 @@ public class AuthTests extends BaseTest {
        Assert.assertTrue(page.areCredentialsIncorrect(), "Error message for incorrect credentials is not visible");
     }
 
-    @Test(description = "Logout user")
+    @Test(description = "UI 4: Logout user")
     @Severity(SeverityLevel.CRITICAL)
     @Description("Verify that users can successfully log out")
     public void logoutUserTest(){
@@ -127,7 +127,7 @@ public class AuthTests extends BaseTest {
 
     }
 
-    @Test(description = "Test Case 5: Register User with existing email")
+    @Test(description = "UI 5: Register User with existing email")
     @Severity(SeverityLevel.NORMAL)
     @Description("Verify that user cannot register with an already existing email address")
     public void registerUserWithExistingEmail() {
