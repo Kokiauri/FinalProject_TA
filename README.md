@@ -3,7 +3,7 @@
 ## Group members & Contributions
 - Kokiauri Giorgi
 
-All Tests/Presentation e.t.c are done by me.
+All Tests/Presentation etc. are done by me.
 
 ## Prerequisites
 
